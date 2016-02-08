@@ -1,0 +1,45 @@
+<a href="#/dashboard" class="logo">
+    1v1 Bar<img src="assets/img/baron.png" alt="YouActive" />n
+</a>
+<nav class="navbar navbar-static-top" role="navigation">
+    <a ng-class="cursorPointer" ng-click="enableSidebar(stateSidebar)" class="navbar-btn sidebar-toggle" role="button" ng-mouseenter="cursorPointer='cursorPointer'" ng-mouseleave="cursorPointer=''">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+    </a>
+    <div class="navbar-right">
+        <ul class="nav navbar-nav">
+            <li class="dropdown user user-menu" ng-class="userDropdown" ng-toggle="userDropdown='open'">
+                <a class="dropdown-toggle" data-toggle="dropdown" style="cursor:pointer">
+                    <i class="glyphicon glyphicon-user"></i>
+                    <span class="fullname">{{ summonerName.name }}</span>
+                    <span class="shortname">{{ summonerName.name }}</span>
+                    <i class="caret"></i>
+                </a>
+                <ul class="dropdown-menu">
+                    <li class="user-header bg-light-blue">
+                        <img src="{{ userAvatar }}" class="img-circle" alt="Avatar user" />
+                        <p>
+                            {{firstname}} {{lastname}}
+                            <small>{{rights}}</small>
+                        </p>
+                    </li>
+                    <li class="user-body">
+                        <div class="col-xs-12 text-center">
+                            Member assigned to {{site}}
+                        </div>
+                    </li>
+                    <li class="user-footer">
+                        <div class="pull-left">
+                            <a href="#/lockscreen" class="btn btn-default btn-flat">Lock Session</a>
+                        </div>
+                        <div class="pull-right">
+                            <a ng-click="signOut()" class="btn btn-default btn-flat">Sign out</a>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</nav>

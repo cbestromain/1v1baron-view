@@ -1,0 +1,70 @@
+<header ng-controller="TopbarCtrl" ng-include src="'common/partials/topbar/topbar.view.html'" class="header"></header>
+<div ng-class="{'relative active':toggleSidebar}" class="wrapper row-offcanvas row-offcanvas-left">
+    <aside ng-class="{'collapse-left':toggleSidebar}" ng-controller="SidebarCtrl" ng-include src="'common/partials/sidebar/sidebar.view.html'" class="left-side sidebar-offcanvas">
+    </aside>
+    <aside class="right-side" ng-class="{'stretch':toggleSidebar}">
+        <section class="content-header">
+            <h1>
+                Dashboard
+                <small>Control panel</small>
+            </h1>
+            <ol class="breadcrumb">
+                <li>
+                    <a href="#/dashboard">
+                        <i class="fa fa-home"></i> Home
+                    </a>
+                </li>
+                <li class="active">
+                    Dashboard
+                </li>
+            </ol>
+        </section>
+        <section class="content">
+            <div class="row">
+                <div class="col-xs-12">
+                	<div class="box">
+                        <div class="box-header">
+                            <h3 class="box-title"><i class="fa fa-th"></i> Select your opponent</h3>
+                        </div>
+                        <div class="box-body">
+                        	<div class="row">
+                                <div class="col-xs-12">
+                                    <div class="col-xs-4 col-sm-2">
+            							<a class="thumbnail">
+        									<img ng-src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/champion/{{nameChampSelected}}.png" alt="">
+        									<p>{{nameChampSelected}}</p>
+        								</a>
+                                    </div>
+                                </div>
+            				</div>
+
+
+                            <div class="row">
+                                <div ng-repeat="counterItem in allCounterList | orderBy: 'key[1]' " class="col-xs-12">
+                                    <div class="col-xs-4 col-sm-2">
+                                        <a class="thumbnail" href="#/duelAdvice/{{nameChampSelected}}/{{counterItem.value.champion}}" >
+                                            <img ng-src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/champion/{{counterItem.value.champion}}.png" alt="">
+                                            <p>{{counterItem.value.champion}} {{counterItem.key[1]}}</p>
+                                            <p>{{counterItem.value.tips}}</p>
+                                            <div ng-repeat="summonerFavoriteChampItem in summonerFavoriteChampList.champions">
+                                                <div ng-if="counterItem.value.championId === summonerFavoriteChampItem.id">
+                                                   <p>{{summonerFavoriteChampItem.stats.totalSessionsPlayed}} played / {{ (summonerFavoriteChampItem.stats.totalSessionsWon*100)/(summonerFavoriteChampItem.stats.totalSessionsWon+summonerFavoriteChampItem.stats.totalSessionsLost) | number:2 }} %</p>
+
+                                                    <p>KDA : {{(summonerFavoriteChampItem.stats.totalChampionKills+summonerFavoriteChampItem.stats.totalAssists)/summonerFavoriteChampItem.stats.totalDeathsPerSession | number:2}} ( {{(summonerFavoriteChampItem.stats.totalChampionKills/summonerFavoriteChampItem.stats.totalSessionsPlayed) | number:2}} /
+                                                    {{(summonerFavoriteChampItem.stats.totalDeathsPerSession/summonerFavoriteChampItem.stats.totalSessionsPlayed) | number:2}} /
+                                                    {{(summonerFavoriteChampItem.stats.totalAssists/summonerFavoriteChampItem.stats.totalSessionsPlayed) | number:0}} )</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </aside>
+</div>

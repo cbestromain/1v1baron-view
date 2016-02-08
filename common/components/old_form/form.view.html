@@ -1,0 +1,384 @@
+<div class="home">
+	<div class="row">
+		<div class="form-header">
+			<h1 >Formulaire</h1>
+			<h2>Thank you for sharing your knowledge with 1v1baron's community</h2>
+		</div>
+		<div class="row">
+		    <div class="form-body first-part col-sm-12 col-md-6 col-md-offset-3">
+		        <div class="box">
+		            <div class="box-header">
+		                <h3 class="box-title"><i class="fa fa-table"></i> Select champion, ennemy and lane</h3>
+		            </div>
+		            <div class="hud-sectiondivider"></div>
+		            <div class="box-body">
+		                <div class="row" style="padding-bottom: 10px;">
+		                    <div class="col-xs-6">
+		                        <span class="nullable">
+		                            <select class="form-control" ng-model="updateMatchup.champion" ng-options="champion.key as champion.key for champion in championList">
+		                                <option value="">Champion</option>
+		                            </select>
+		                        </span>
+		                    </div>
+		                    <div class="col-xs-6">
+		                        <span class="nullable">
+		                            <select class="form-control" ng-model="updateMatchup.ennemy" ng-options="ennemy.key as ennemy.key for ennemy in championList">
+		                                <option value="">Ennemy</option>
+		                            </select>
+		                        </span>
+		                    </div>
+		                </div>
+		                <div class="row" style="padding-bottom: 10px;">
+		                    <div class="col-xs-6 col-xs-offset-3">
+		                        <span class="nullable">
+		                            <select class="form-control" ng-model="updateMatchup.lane">
+		                            	<option value="">Lane</option>
+		                                <option value="adc">Adc</option>
+		                                <option value="mid">Mid</option>
+		                                <option value="top">Top</option>
+		                                <option value="support">Support</option>
+		                                <option value="jungle">Jungle</option>
+		                            </select>
+		                        </span>
+		                    </div>
+		                </div>
+		                <div class="row" style="padding-bottom: 10px;">
+		                    <div class="col-xs-12" style="text-align:center">
+				                    <button class="btn btn-default btn-sm" data-toggle="tooltip" title="Valid" ng-click="loadMatchup(); loadChampSpell(1)" tooltip="Valid" tooltip-placement="bottom">Valid</button>
+		                	</div>
+		                </div>
+
+		            </div>
+		        </div>
+		    </div>
+		</div>
+		<div class="row">
+	<!-- 	    <div ng-if="!showForm" class="col-xs-12 col-lg-6">
+		    	<p>{{showForm}}</p>
+		    </div> -->
+		    <div ng-if="showForm" class="form-body second-part col-sm-12 col-md-6 col-md-offset-3">
+		        <form role="form" class="form-horizontal" novalidate name="form">
+		            <div class="box">
+		                <div class="box-header">
+		                    <h3 class="box-title">MATCHUP DOC</h3>
+		                </div>
+		                <div class="box-body">
+						<div class="hud-sectiondivider"></div>
+		                	<div class="pull-left image">
+					            <img src="http://ddragon.leagueoflegends.com/cdn/5.20.1/img/champion/{{ matchupDoc.champion }}.png" class="img-circle" alt="Avatar champion" />
+					        </div>
+							<!-- CHAMPION -->
+		                    <div class="form-group">
+		                        <label class="col-sm-2 control-label" for="champion">Champion</label>
+		                        <div class="col-sm-9">
+		                            <input type="text" name="champion" id="champion" class="form-control" ng-model="matchupDoc.champion" placeholder="Champion" disabled required />
+		                        </div>
+		                    </div>
+
+		                    <div class="pull-right image">
+					            <img src="http://ddragon.leagueoflegends.com/cdn/5.20.1/img/champion/{{ matchupDoc.ennemy }}.png" class="img-circle" alt="Avatar champion" />
+					        </div>
+
+							<!-- ENNEMY -->
+		                    <div class="form-group">
+		                        <label class="col-sm-offset-6 col-sm-3 control-label" for="ennemy">Ennemy</label>
+		                        <div class="col-sm-offset-1 col-sm-9">
+		                            <input type="text" name="ennemy" id="ennemy" class="form-control" ng-model="matchupDoc.ennemy" placeholder="Ennemy"  disabled required />
+		                        </div>
+		                    </div>
+
+
+							<!-- DIFFICULTY -->
+		                    <div class="form-group">
+		                        <label class="col-sm-3 control-label" for="star">Difficulty</label>
+		                        <div class="col-sm-9">
+
+									    <rating ng-model="matchupDoc.difficulty" max="max" readonly="isReadonly" on-hover="hoveringOver(value)" on-leave="hoveringOut()" state-on="'baron-on'" state-off="'baron-off'" required></rating>
+
+
+									    <span class="label" ng-if="overStar==1" ng-class="{'label-success': overStar==1}" ng-show="overStar">Very easy</span>
+
+									    <span class="label" ng-if="overStar==2" ng-class="{'label-success': overStar==2}" ng-show="overStar">Easy</span>
+
+									    <span class="label" ng-if="overStar==3" ng-class="{'label-info': overStar==3}" ng-show="overStar">Balanced</span>
+
+									    <span class="label" ng-if="overStar==4" ng-class="{'label-warning' : overStar==4}" ng-show="overStar">Hard</span>
+
+									    <span class="label" ng-if="overStar==5" ng-class="{'label-warning' : overStar==5}" ng-show="overStar">Very Hard</span>
+
+									<!--<span class="rating">
+
+								        <input type="radio" class="rating-input"
+								            id="rating-input-1-5" name="rating-input-1" value="1">
+								        <label for="rating-input-1-5" class="rating-star"></label>
+								        <input type="radio" class="rating-input"
+								            id="rating-input-1-4" name="rating-input-1" value="2">
+								        <label for="rating-input-1-4" class="rating-star" value="2"></label>
+								        <input type="radio" class="rating-input"
+								            id="rating-input-1-3" name="rating-input-1" value="3">
+								        <label for="rating-input-1-3" class="rating-star" value="3"></label>
+								        <input type="radio" class="rating-input"
+								            id="rating-input-1-2" name="rating-input-1" value="4">
+								        <label for="rating-input-1-2" class="rating-star" value="4"></label>
+								        <input type="radio" class="rating-input"
+								            id="rating-input-1-1" name="rating-input-1" value="5">
+								        <label for="rating-input-1-1" class="rating-star" value="5"></label>
+								    </span> -->
+		                        </div>
+		                    </div>
+
+
+
+							<!-- DIFFICULTY -->
+							<!--<div class="form-group" ng-class="{ 'has-success': form.site.$valid, 'has-error': errorMessage }">
+		                        <label class="col-sm-3 control-label" for="difficulty">Difficulty</label>
+		                        <div class="col-sm-9">
+		                            <span>
+				                        <select name="difficulty" id="difficulty" class="form-control" ng-model="matchupDoc.difficulty" required>
+				                        	<option value disabled>Select a difficulty</option>
+				                            <option value="5">Very Easy</option>
+				                            <option value="4">Easy</option>
+				                            <option value="3">Balanced</option>
+				                            <option value="2">Hard</option>
+				                            <option value="1">Very Hard</option>
+				                        </select>
+				                    </span>
+		                        </div>
+		                    </div> -->
+							<!-- TYPE -->
+
+		                    <div class="form-group">
+		                        <label class="col-sm-3 control-label" for="type">Type</label>
+		                        <div class="col-sm-9">
+		                            <input type="text" name="type" id="type" class="form-control" ng-model="matchupDoc.type" placeholder="Type"  disabled required />
+		                        </div>
+		                    </div>
+							<!-- LANE -->
+
+		                    <div class="form-group">
+		                        <label class="col-sm-3 control-label" for="lane">Lane</label>
+		                        <div class="col-sm-9">
+		                            <input type="text" name="lane" id="lane" class="form-control" ng-model="matchupDoc.lane" placeholder="Lane"  disabled required />
+		                        </div>
+		                    </div>
+
+							<!-- PROADVICE -->
+		                    <div class="form-group">
+		                        <label class="col-sm-3 control-label" for="proAdvice">Pro advice</label>
+		                        <div class="col-sm-9">
+		                            <textarea type="text" name="proAdvice" id="proAdvice" class="form-control" ng-model="matchupDoc.proAdvice" placeholder="proAdvice" required><textarea/>	                            
+		                        </div>
+		                    </div>
+
+
+							<!-- AUTHOR -->
+		                    <div class="form-group">
+		                        <label class="col-sm-3 control-label" for="author">Author</label>
+		                        <div class="col-sm-9">
+		                            <input type="text" name="author" id="author" class="form-control" ng-model="matchupDoc.author" placeholder="Author" required />
+		                        </div>
+		                    </div>
+
+							<!-- TIPS -->
+		                    <div class="form-group">
+		                        <label class="col-sm-3 control-label" for="tips">Tips</label>
+		                        <div class="col-sm-9">
+		                            <input name="tips" id="tips" class="form-control" ng-model="matchupDoc.tips" placeholder="Tips #1" required />
+	                            	<input name="tips2" id="tips2" class="form-control" ng-model="matchupDoc.tips2" placeholder="Tips #2" required />
+                            		<input name="tips3" id="tips3" class="form-control" ng-model="matchupDoc.tips3" placeholder="Tips #3" required />
+
+		                        </div>
+		                    </div>
+
+							<!-- BUILD -->
+		                    <div class="form-group">
+		                        <label class="col-sm-3 control-label" for="build">Build</label>
+		                        <div class="col-sm-9">
+		                            <input type="text" name="build" id="build" class="form-control" ng-model="matchupDoc.build" placeholder="Build" required />
+		                        </div>
+		                    </div>
+
+							<!-- Mastery -->
+		                    <div class="form-group">
+		                        <label class="col-sm-3 control-label" for="mastery">Mastery</label>
+		                        <div class="col-sm-9">
+		                            <input type="text" name="mastery" id="mastery" class="form-control" ng-model="matchupDoc.mastery" placeholder="21/9/0" required />
+		                        </div>
+		                    </div>
+
+		                    <!-- Runes -->
+		                    <div class="form-group">
+		                        <label class="col-sm-3 control-label" for="runes">Runes</label>
+		                        <div class="col-sm-9">
+		                            <input type="text" name="runes" id="runes" class="form-control" ng-model="matchupDoc.runes" placeholder="3xad, 9xad , 9xrm, 9xarmor" required />
+		                        </div>
+		                    </div>
+
+
+							<!-- SKILLORDER -->
+		                    <div class="form-group">
+		                        <label class="col-sm-3 control-label" for="skillOrder">Skill Order</label>
+		                        <div class="col-sm-9">
+		                            <input type="text" name="skillOrder" id="skillOrder" class="form-control" ng-model="matchupDoc.skillOrder" placeholder="skillOrder" required />
+		                            <img src="http://ddragon.leagueoflegends.com/cdn/5.20.1/img/spell/FlashFrost.png" class="champSpell" alt="Q spell" />
+		                            <img src="http://ddragon.leagueoflegends.com/cdn/5.20.1/img/spell/FlashFrost.png" class="champSpell" alt="W spell" />
+		                            <img src="http://ddragon.leagueoflegends.com/cdn/5.20.1/img/spell/FlashFrost.png" class="champSpell" alt="E spell" />
+		                            <img src="http://ddragon.leagueoflegends.com/cdn/5.20.1/img/spell/FlashFrost.png" class="champSpell" alt="R spell" />
+
+
+ 
+
+		                        </div>
+		                    </div>
+
+		                    <!-- Summoner Spell -->
+<!-- 		                    <div class="form-group">
+		                        <label class="col-sm-3 control-label" for="summonerSpell">Summoner Spell</label>
+		                        <div class="col-sm-9">
+		                            <input type="text" name="summonerSpell" id="summonerSpell" class="form-control" ng-model="matchupDoc.summonerSpell" placeholder="summonerSpell" required />
+		                        </div>
+		                    </div>
+ -->
+		                    <div class="form-group">
+		                        <label class="col-sm-3 control-label" for="summonerSpell">Summoner Spell</label>
+		                        <div class="col-sm-9">
+					            	<img src="assets/img/summoners/Flash.png" ng-class="{ 'selectedSpell': matchupDoc.summonerSpell[0] == 'Flash' || matchupDoc.summonerSpell[1] == 'Flash'  }" class="summonerSpellIcon" ng-click="selectSummoner('Flash')" alt="Flash" />
+					            	<img src="assets/img/summoners/Exhaust.png" ng-class="{ 'selectedSpell': matchupDoc.summonerSpell[0] == 'Exhaust' || matchupDoc.summonerSpell[1] == 'Exhaust'  }" class="summonerSpellIcon" ng-click="selectSummoner('Exhaust')" alt="Exhaust" />
+					            	<img src="assets/img/summoners/Ignite.png" ng-class="{ 'selectedSpell': matchupDoc.summonerSpell[0] == 'Ignite' || matchupDoc.summonerSpell[1] == 'Ignite'  }" class="summonerSpellIcon" ng-click="selectSummoner('Ignite')" alt="Ignite" />
+					            	<img src="assets/img/summoners/Heal.png" ng-class="{ 'selectedSpell': matchupDoc.summonerSpell[0] == 'Heal' || matchupDoc.summonerSpell[1] == 'Heal'  }" class="summonerSpellIcon" ng-click="selectSummoner('Heal')" alt="Heal" />
+					            	<img src="assets/img/summoners/Barrier.png" ng-class="{ 'selectedSpell': matchupDoc.summonerSpell[0] == 'Barrier' || matchupDoc.summonerSpell[1] == 'Barrier'  }" class="summonerSpellIcon" ng-click="selectSummoner('Barrier')" alt="Barrier" />
+					            	<img src="assets/img/summoners/Cleanse.png" ng-class="{ 'selectedSpell': matchupDoc.summonerSpell[0] == 'Cleanse' || matchupDoc.summonerSpell[1] == 'Cleanse'  }" class="summonerSpellIcon" ng-click="selectSummoner('Cleanse')" alt="Cleanse" />
+					            	<img src="assets/img/summoners/Ghost.png" ng-class="{ 'selectedSpell': matchupDoc.summonerSpell[0] == 'Ghost' || matchupDoc.summonerSpell[1] == 'Ghost'  }" class="summonerSpellIcon" ng-click="selectSummoner('Ghost')" alt="Ghost" />
+					            	<img src="assets/img/summoners/Smite.png" ng-class="{ 'selectedSpell': matchupDoc.summonerSpell[0] == 'Smite' || matchupDoc.summonerSpell[1] == 'Smite'  }" class="summonerSpellIcon" ng-click="selectSummoner('Smite')" alt="Smite" />
+					            	<img src="assets/img/summoners/Teleport.png" ng-class="{ 'selectedSpell': matchupDoc.summonerSpell[0] == 'Teleport' || matchupDoc.summonerSpell[1] == 'Teleport'  }" class="summonerSpellIcon" ng-click="selectSummoner('Teleport')" alt="Teleport" />
+		                        </div>
+		                    </div>
+
+		                    <pre>{{matchupDoc}}</pre>
+
+
+								<!--<div class="form-group">
+
+			                    <table class="skills" cellspacing="0">
+								   <tbody>
+								      <tr>
+								         <td>Player Level</td>
+								         <td class="level">1</td>
+								         <td class="level">2</td>
+								         <td class="level">3</td>
+								         <td class="level">4</td>
+								         <td class="level">5</td>
+								         <td class="level">6</td>
+								         <td class="level">7</td>
+								         <td class="level">8</td>
+								         <td class="level">9</td>
+								         <td class="level">10</td>
+								         <td class="level">11</td>
+								         <td class="level">12</td>
+								         <td class="level">13</td>
+								         <td class="level">14</td>
+								         <td class="level">15</td>
+								         <td class="level">16</td>
+								         <td class="level">17</td>
+								         <td class="level">18</td>
+								      </tr>
+								      <tr class="even">
+								         <td class="skill"><span class="key">Q</span></td>
+								         <td class="level"><input type="radio" name="level1" ng-model="matchupDoc.testlvl1"></td>
+								         <td class="level"><input type="radio" name="level2" ng-model="matchupDoc.testlvl2"></td>
+								         <td class="level"><input type="radio" name="level3" ></td>
+								         <td class="level"><input type="radio" name="level4"></td>
+								         <td class="level"><input type="radio" name="level5"></td>
+								         <td class="level"><input type="radio" name="level6"></td>
+								         <td class="level"><input type="radio" name="level7"></td>
+								         <td class="level"><input type="radio" name="level8"></td>
+								         <td class="level"><input type="radio" name="level9"></td>
+								         <td class="level"><input type="radio" name="level10"></td>
+								         <td class="level"><input type="radio" name="level11"></td>
+								         <td class="level"><input type="radio" name="level12"></td>
+								         <td class="level"><input type="radio" name="level13"></td>
+								         <td class="level"><input type="radio" name="level14"></td>
+								         <td class="level"><input type="radio" name="level15"></td>
+								         <td class="level"><input type="radio" name="level16"></td>
+								         <td class="level"><input type="radio" name="level17"></td>
+								         <td class="level"><input type="radio" name="level18"></td>
+								      </tr>
+								      <tr class="even">
+								         <td class="skill"><span class="key">W</span><span </td>
+								         <td class="level"><input type="radio" name="level1"></td>
+								         <td class="level"><input type="radio" name="level2"></td>
+								         <td class="level"><input type="radio" name="level3"></td>
+								         <td class="level"><input type="radio" name="level4"></td>
+								         <td class="level"><input type="radio" name="level5"></td>
+								         <td class="level"><input type="radio" name="level6"></td>
+								         <td class="level"><input type="radio" name="level7"></td>
+								         <td class="level"><input type="radio" name="level8"></td>
+								         <td class="level"><input type="radio" name="level9"></td>
+								         <td class="level"><input type="radio" name="level10"></td>
+								         <td class="level"><input type="radio" name="level11"></td>
+								         <td class="level"><input type="radio" name="level12"></td>
+								         <td class="level"><input type="radio" name="level13"></td>
+								         <td class="level"><input type="radio" name="level14"></td>
+								         <td class="level"><input type="radio" name="level15"></td>
+								         <td class="level"><input type="radio" name="level16"></td>
+								         <td class="level"><input type="radio" name="level17"></td>
+								         <td class="level"><input type="radio" name="level18"></td>
+								      </tr>
+								      <tr class="even">
+								         <td class="skill"><span class="key">E</span></td>
+								         <td class="level"><input type="radio" name="level1"></td>
+								         <td class="level"><input type="radio" name="level2"></td>
+								         <td class="level"><input type="radio" name="level3"></td>
+								         <td class="level"><input type="radio" name="level4"></td>
+								         <td class="level"><input type="radio" name="level5"></td>
+								         <td class="level"><input type="radio" name="level6"></td>
+								         <td class="level"><input type="radio" name="level7"></td>
+								         <td class="level"><input type="radio" name="level8"></td>
+								         <td class="level"><input type="radio" name="level9"></td>
+								         <td class="level"><input type="radio" name="level10"></td>
+								         <td class="level"><input type="radio" name="level11"></td>
+								         <td class="level"><input type="radio" name="level12"></td>
+								         <td class="level"><input type="radio" name="level13"></td>
+								         <td class="level"><input type="radio" name="level14"></td>
+								         <td class="level"><input type="radio" name="level15"></td>
+								         <td class="level"><input type="radio" name="level16"></td>
+								         <td class="level"><input type="radio" name="level17"></td>
+								         <td class="level"><input type="radio" name="level18"></td>
+								      </tr>
+								      <tr class="even">
+								         <td class="skill"><span class="key">R</span></td>
+								         <td class="level"><input type="radio" name="level1"></td>
+								         <td class="level"><input type="radio" name="level2"></td>
+								         <td class="level"><input type="radio" name="level3"></td>
+								         <td class="level"><input type="radio" name="level4"></td>
+								         <td class="level"><input type="radio" name="level5"></td>
+								         <td class="level"><input type="radio" name="level6"></td>
+								         <td class="level"><input type="radio" name="level7"></td>
+								         <td class="level"><input type="radio" name="level8"></td>
+								         <td class="level"><input type="radio" name="level9"></td>
+								         <td class="level"><input type="radio" name="level10"></td>
+								         <td class="level"><input type="radio" name="level11"></td>
+								         <td class="level"><input type="radio" name="level12"></td>
+								         <td class="level"><input type="radio" name="level13"></td>
+								         <td class="level"><input type="radio" name="level14"></td>
+								         <td class="level"><input type="radio" name="level15"></td>
+								         <td class="level"><input type="radio" name="level16"></td>
+								         <td class="level"><input type="radio" name="level17"></td>
+								         <td class="level"><input type="radio" name="level18"></td>
+								      </tr>
+								   </tbody>
+								</table>
+							</div> -->
+
+							<div class="form-group">
+			                    <div class="col-sm-3" style="text-align:center">
+					                <button class="btn btn-default btn-sm" data-toggle="tooltip" title="Save" ng-click="saveMatchup(matchupDoc)" tooltip="Save" tooltip-placement="bottom">Save</button>
+		                		</div>
+		                	</div>
+		                </div>
+		            </div>
+		        </form>
+		    </div>
+		</div>
+	</div>
+</div>
