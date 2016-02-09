@@ -15,11 +15,15 @@ webadminControllers.controller('SidebarCtrl', [
             var topChamp=[]
             SuggestPickService.getSummonerFavoriteChamp(LocalStorage.loadStorage().id).then(function(result) {
                 $scope.summonerFavoriteChampList = result;
-                result.sort(function(a,b){
-                    return a.age-b.age;
+                for (var i = 0; i < result.length; i++) {
+                    if(result[i].id != 0) {
+                        topChamp[i]=result[i];
+                    }
+                };
+                topChamp.sort(function(a, b) {
+                    return parseFloat(a.price) - parseFloat(b.price);
                 });
-                console.log('summonerFavoriteChampList', $scope.summonerFavoriteChampList);
-                console.log('result', result);
+                console.log('summonerFavoriteChampList', result);
             });
         };
 
