@@ -16,6 +16,7 @@
         <div class="pull-left info">
             <p>{{summonerRank.tier}} {{summonerRank.entries[0].division}} - {{summonerRank.entries[0].leaguePoints}} LP</p>
             <p>{{summonerRank.entries[0].wins}} wins</p>
+            <p ng-if="{{summonerRank.entries[0].isHotStreak}}"class="hotStreak">On winning streak (3 or more)</p>
             <p>{{summonerRank.entries[0].losses}} losses</p>
             <p>{{ (summonerRank.entries[0].wins*100)/(summonerRank.entries[0].wins+summonerRank.entries[0].losses) | number:2 }} %</p>
         </div>
