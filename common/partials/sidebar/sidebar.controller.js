@@ -15,16 +15,11 @@ webadminControllers.controller('SidebarCtrl', [
             var topChamp=[]
             SuggestPickService.getSummonerFavoriteChamp(LocalStorage.loadStorage().id).then(function(result) {
                 $scope.summonerFavoriteChampList = result;
-                for (var i = 0; i < result.length; i++) {
-                    if(result[i].id != 0) {
-                        topChamp[i]=result[i];
-                    }
-                };
-                topChamp.sort(function(a,b){
+                result.sort(function(a,b){
                     return a.age-b.age;
                 });
-                console.log('summonerFavoriteChampList', result);
-                console.log('topChamp', topChamp);
+                console.log('summonerFavoriteChampList', $scope.summonerFavoriteChampList);
+                console.log('result', result);
             });
         };
 
