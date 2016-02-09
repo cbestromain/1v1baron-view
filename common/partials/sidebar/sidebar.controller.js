@@ -13,7 +13,7 @@ webadminControllers.controller('SidebarCtrl', [
 
 
         $scope.getSummonerFavoriteChamp = function() {
-            SuggestPickService.getSummonerFavoriteChamp(LocalStorage.loadStorage().id).then(function(result) {
+            EnnemyPickService.getSummonerFavoriteChamp(LocalStorage.loadStorage().id).then(function(result) {
                 $scope.summonerFavoriteChampList = result;
                 console.log('summonerFavoriteChampList', result);
             });
