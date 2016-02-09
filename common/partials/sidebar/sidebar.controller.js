@@ -1,8 +1,8 @@
 /* Controllers */
 
 webadminControllers.controller('SidebarCtrl', [
-    '$scope', '$location', 'LocalStorage', 'EnnemyPickService',
-    function($scope, $location, LocalStorage, EnnemyPickService) {
+    '$scope', '$location', 'LocalStorage', 'EnnemyPickService', 'SuggestPickService',
+    function($scope, $location, LocalStorage, EnnemyPickService, SuggestPickService) {
         $scope.getSummonerRank = function() {
             console.log('getSummonerRank');
             EnnemyPickService.getSummonerRank(LocalStorage.loadStorage().id).then(function(result) {
@@ -10,6 +10,14 @@ webadminControllers.controller('SidebarCtrl', [
                 // console.log('result', result[0]);
             });
         };
+
+        $scope.getSummonerFavoriteChamp = function() {
+            SuggestPickService.getSummonerFavoriteChamp(LocalStorage.loadStorage().id).then(function(result) {
+                $scope.summonerFavoriteChampList = result;
+                console.log('summonerFavoriteChampList', result);
+            });
+        };
+
         $scope.summonerName = LocalStorage.loadStorage();
         $scope.getSummonerRank();
     }
