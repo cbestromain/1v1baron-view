@@ -25,7 +25,7 @@ webadminControllers.controller('SidebarCtrl', [
                 });
                 $scope.summonerFavoriteChampList = topChamp
                 // console.log('summonerFavoriteChampList', result);
-                console.log('topChamp', topChamp);
+                console.log('topChamp', $scope.summonerFavoriteChampList);
             });
         };
 
