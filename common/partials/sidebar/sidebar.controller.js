@@ -21,7 +21,7 @@ webadminControllers.controller('SidebarCtrl', [
                     }
                 };
                 topChamp.sort(function(a, b) {
-                    return parseFloat(a.id) - parseFloat(b.price);
+                    return parseFloat(a.stats.totalSessionsPlayed) - parseFloat(b.stats.totalSessionsPlayed);
                 });
                 console.log('summonerFavoriteChampList', result);
                 console.log('topChamp', topChamp);
