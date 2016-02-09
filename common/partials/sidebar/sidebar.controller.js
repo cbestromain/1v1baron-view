@@ -14,7 +14,7 @@ webadminControllers.controller('SidebarCtrl', [
         $scope.getSummonerFavoriteChamp = function() {
             var topChamp=[]
             SuggestPickService.getSummonerFavoriteChamp(LocalStorage.loadStorage().id).then(function(result) {
-                $scope.summonerFavoriteChampList = result;
+                // $scope.summonerFavoriteChampList = result;
                 for (var i = 0; i < result.champions.length; i++) {
                     if(result.champions[i].id != 0) {
                         topChamp[i]=result.champions[i];
@@ -23,7 +23,8 @@ webadminControllers.controller('SidebarCtrl', [
                 topChamp.sort(function(a, b) {
                     return parseFloat(a.stats.totalSessionsPlayed) - parseFloat(b.stats.totalSessionsPlayed);
                 });
-                console.log('summonerFavoriteChampList', result);
+                $scope.summonerFavoriteChampList = topChamp
+                // console.log('summonerFavoriteChampList', result);
                 console.log('topChamp', topChamp);
             });
         };
