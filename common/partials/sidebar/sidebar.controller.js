@@ -20,5 +20,6 @@ webadminControllers.controller('SidebarCtrl', [
 
         $scope.summonerName = LocalStorage.loadStorage();
         $scope.getSummonerRank();
+        $scope.getSummonerFavoriteChamp();
     }
 ]);
