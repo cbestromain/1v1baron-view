@@ -24,13 +24,12 @@ webadminControllers.controller('EnnemyPickCtrl', [
             console.log('getSummonerRank');
            EnnemyPickService.getSummonerRank(LocalStorage.loadStorage().id).then(function(result) {
                 $scope.summonerRank = result[0];
-                console.log('result', result[0]);
+                // console.log('result', result[0]);
             });
         };
 
 
         $scope.selectChamp = function() {
-            console.log('prout');
             $location.path('/suggestPick').replace();
             // EnnemyPickService.selectChamp().then(function(result) {
             //     console.log('result', result);

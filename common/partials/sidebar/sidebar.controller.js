@@ -10,7 +10,18 @@ webadminControllers.controller('SidebarCtrl', [
                 // console.log('result', result[0]);
             });
         };
+
+
+        $scope.getSummonerFavoriteChamp = function() {
+            SuggestPickService.getSummonerFavoriteChamp(LocalStorage.loadStorage().id).then(function(result) {
+                $scope.summonerFavoriteChampList = result;
+                console.log('summonerFavoriteChampList', result);
+            });
+        };
+
+
         $scope.summonerName = LocalStorage.loadStorage();
         $scope.getSummonerRank();
+        $scope.getSummonerFavoriteChamp();
     }
 ]);
