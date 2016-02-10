@@ -14,6 +14,7 @@ webadminControllers.controller('SidebarCtrl', [
         $scope.getSummonerFavoriteChamp = function() {
             var topChamp=[];
             var top3champ=[];
+            var temp={};
             SuggestPickService.getSummonerFavoriteChamp(LocalStorage.loadStorage().id).then(function(result) {
                 // $scope.summonerFavoriteChampList = result;
                 for (var i = 0; i < result.champions.length; i++) {
@@ -31,11 +32,11 @@ webadminControllers.controller('SidebarCtrl', [
                     EnnemyPickService.getChampById($scope.summonerFavoriteChampList[j].id).then(function(result2) {
                         // console.log('getChampById', $scope.summonerFavoriteChampList[i].id);
                         console.log('result2', result2);
+                        temp=result2;
                     }, function(err) {
                         console.log('error', err);
                     }); 
-                        top3champ[j]=result2;
-
+                    top3champ[j]=temp;
                 };
                 console.log('top3champ', top3champ);
             });
