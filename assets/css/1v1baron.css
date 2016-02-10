@@ -27,9 +27,17 @@ body::-webkit-scrollbar, body::-ms-scrollbar, body::-moz-scrollbar {
     width: 100%;
 }
 
-.hotStreak{
+.hotStreak {
     color: green;
-    
+}
+
+.suggestPickCounterItem {
+  margin: auto !important;
+}
+
+.suggestPickThumbnail {
+  float:left;
+  width: 100%;
 }
 
 .utils {
