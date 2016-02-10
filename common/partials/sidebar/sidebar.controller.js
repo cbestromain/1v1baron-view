@@ -13,7 +13,7 @@ webadminControllers.controller('SidebarCtrl', [
 
         $scope.getChampById = function() {
            EnnemyPickService.getChampById().then(function(result) {
-                $scope.championList = result;
+                $scope.championIdList = result;
                 console.log('getChampById', result);
             });
         };
@@ -39,6 +39,7 @@ webadminControllers.controller('SidebarCtrl', [
         $scope.summonerName = LocalStorage.loadStorage();
         $scope.summonerFavoriteChampList=[2];
         $scope.summonerTop3=[];
+        $scope.championIdList=[];
         $scope.getSummonerRank();
         $scope.getSummonerFavoriteChamp();
         $scope.getChampById();
