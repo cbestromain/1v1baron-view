@@ -6,6 +6,7 @@ webadminServices.service('EnnemyPickService', function($http, $q) {
         getChampImg: getChampImg,
         getSummonerRank: getSummonerRank,
         selectChamp: selectChamp,
+        getChampById: getChampById,
     });
     
 
@@ -51,6 +52,19 @@ webadminServices.service('EnnemyPickService', function($http, $q) {
             url: 'http://51.254.115.94:1337/getChampImage',
             headers: {
                 id: id
+            }
+        });
+
+        return (request.then(handleSuccess, handleError));
+    }
+
+    function getChampById(id) {
+        console.log('getChampById');
+        var request = $http({
+            method: 'POST',
+            url: 'http://51.254.115.94:1337/getChampById',
+            headers: {
+                champid: id
             }
         });
 
