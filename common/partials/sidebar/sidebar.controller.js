@@ -14,7 +14,7 @@ webadminControllers.controller('SidebarCtrl', [
         $scope.getChampById = function() {
            EnnemyPickService.getChampById().then(function(result) {
                 $scope.championIdList = result;
-                console.log('championIdList', championIdList);
+                console.log('championIdList', $scope.championIdList);
             });
         };
 
