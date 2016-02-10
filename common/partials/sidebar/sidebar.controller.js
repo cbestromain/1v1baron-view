@@ -11,10 +11,10 @@ webadminControllers.controller('SidebarCtrl', [
             });
         };
 
-        $scope.getAllChamp = function() {
-           EnnemyPickService.getAllChamp().then(function(result) {
+        $scope.getChampById = function() {
+           EnnemyPickService.getChampById().then(function(result) {
                 $scope.championList = result;
-                console.log('getAllChamp', result);
+                console.log('getChampById', result);
             });
         };
 
@@ -41,7 +41,7 @@ webadminControllers.controller('SidebarCtrl', [
         $scope.summonerTop3=[];
         $scope.getSummonerRank();
         $scope.getSummonerFavoriteChamp();
-        $scope.getAllChamp();
+        $scope.getChampById();
 
     }
 ]);
