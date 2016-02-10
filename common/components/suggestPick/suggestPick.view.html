@@ -38,34 +38,32 @@
 
 
                             <div class="row">
-                                <div class="row">
-                                    <div ng-repeat="counterItem in allCounterList | orderBy: 'key[1]' " class="col-xs-12">
-                                        <div class="row">
-                                            <a class="thumbnail" href="#/duelAdvice/{{nameChampSelected}}/{{counterItem.value.champion}}" > 
-                                                <div class="col-md-3">
-                                                    <img ng-src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/champion/{{counterItem.value.champion}}.png" alt="">
-                                                    <p>{{counterItem.value.champion}}</p>
-                                                    <p>{{counterItem.key[1]}}</p>
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <p>{{counterItem.value.tips}}</p>
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <div ng-repeat="summonerFavoriteChampItem in summonerFavoriteChampList.champions">
-                                                        <div ng-if="counterItem.value.championId === summonerFavoriteChampItem.id">
-                                                           <p>{{summonerFavoriteChampItem.stats.totalSessionsPlayed}} played / {{ (summonerFavoriteChampItem.stats.totalSessionsWon*100)/(summonerFavoriteChampItem.stats.totalSessionsWon+summonerFavoriteChampItem.stats.totalSessionsLost) | number:2 }} %</p>
+                                <div ng-repeat="counterItem in allCounterList | orderBy: 'key[1]' " class="col-xs-12">
+                                    <div class="row">
+                                        <a class="thumbnail" href="#/duelAdvice/{{nameChampSelected}}/{{counterItem.value.champion}}" > 
+                                            <div class="col-md-3">
+                                                <img ng-src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/champion/{{counterItem.value.champion}}.png" alt="">
+                                                <p>{{counterItem.value.champion}}</p>
+                                                <p>{{counterItem.key[1]}}</p>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <p>{{counterItem.value.tips}}</p>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div ng-repeat="summonerFavoriteChampItem in summonerFavoriteChampList.champions">
+                                                    <div ng-if="counterItem.value.championId === summonerFavoriteChampItem.id">
+                                                       <p>{{summonerFavoriteChampItem.stats.totalSessionsPlayed}} played / {{ (summonerFavoriteChampItem.stats.totalSessionsWon*100)/(summonerFavoriteChampItem.stats.totalSessionsWon+summonerFavoriteChampItem.stats.totalSessionsLost) | number:2 }} %</p>
 
-                                                            <p>KDA : {{(summonerFavoriteChampItem.stats.totalChampionKills+summonerFavoriteChampItem.stats.totalAssists)/summonerFavoriteChampItem.stats.totalDeathsPerSession | number:2}} ( {{(summonerFavoriteChampItem.stats.totalChampionKills/summonerFavoriteChampItem.stats.totalSessionsPlayed) | number:2}} /
-                                                            {{(summonerFavoriteChampItem.stats.totalDeathsPerSession/summonerFavoriteChampItem.stats.totalSessionsPlayed) | number:2}} /
-                                                            {{(summonerFavoriteChampItem.stats.totalAssists/summonerFavoriteChampItem.stats.totalSessionsPlayed) | number:0}} )</p>
-                                                        </div>
+                                                        <p>KDA : {{(summonerFavoriteChampItem.stats.totalChampionKills+summonerFavoriteChampItem.stats.totalAssists)/summonerFavoriteChampItem.stats.totalDeathsPerSession | number:2}} ( {{(summonerFavoriteChampItem.stats.totalChampionKills/summonerFavoriteChampItem.stats.totalSessionsPlayed) | number:2}} /
+                                                        {{(summonerFavoriteChampItem.stats.totalDeathsPerSession/summonerFavoriteChampItem.stats.totalSessionsPlayed) | number:2}} /
+                                                        {{(summonerFavoriteChampItem.stats.totalAssists/summonerFavoriteChampItem.stats.totalSessionsPlayed) | number:0}} )</p>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-3">
-                                                </div>
-                                            </a>
-                                        </div>                                       
-                                    </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                            </div>
+                                        </a>
+                                    </div>                                       
                                 </div>
                             </div>
                         </div>
