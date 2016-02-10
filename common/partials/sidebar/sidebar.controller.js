@@ -13,8 +13,6 @@ webadminControllers.controller('SidebarCtrl', [
 
         $scope.getSummonerFavoriteChamp = function() {
             var topChamp=[];
-            var top3champ=[];
-            var temp={};
             SuggestPickService.getSummonerFavoriteChamp(LocalStorage.loadStorage().id).then(function(result) {
                 // $scope.summonerFavoriteChampList = result;
                 for (var i = 0; i < result.champions.length; i++) {
@@ -25,18 +23,19 @@ webadminControllers.controller('SidebarCtrl', [
                 topChamp.sort(function(a, b) {
                     return parseFloat(b.stats.totalSessionsPlayed) - parseFloat(a.stats.totalSessionsPlayed);
                 });
-                $scope.summonerFavoriteChampList = topChamp
+                $scope.summonerFavoriteChampList[0] = topChamp[0];
+                $scope.summonerFavoriteChampList[1] = topChamp[1];
+                $scope.summonerFavoriteChampList[2] = topChamp[2];
                 // console.log('summonerFavoriteChampList', result);
                 console.log('topChamp', $scope.summonerFavoriteChampList);
-                for (var j = 0; j < $scope.summonerFavoriteChampList.length; j++) {
-                    EnnemyPickService.getChampById($scope.summonerFavoriteChampList[j].id).then(function(result2) {
-                        // console.log('getChampById', $scope.summonerFavoriteChampList[i].id);
-                        console.log('result2', result2[0].value);
-                        temp=result2[0].value;
-                    });
-                    top3champ[j]=temp;
-                };
-                console.log('top3champ', top3champ);
+                // for (var j = 0; j < $scope.summonerFavoriteChampList.length; j++) {
+                //     EnnemyPickService.getChampById($scope.summonerFavoriteChampList[j].id).then(function(result2) {
+                //         // console.log('getChampById', $scope.summonerFavoriteChampList[i].id);
+                //         console.log('result2', result2[0].value);
+                //         temp=result2[0].value;
+                //     });
+                //     top3champ[j]=temp;
+                // };
             });
         };
 
