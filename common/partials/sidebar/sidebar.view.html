@@ -23,8 +23,18 @@
 
         <div class="pull-left info">
             <p>SEASON 6 TOP CHAMP: </p>
-            <p>{{summonerFavoriteChampList[0].stats.totalSessionsPlayed}} games ( {{(summonerFavoriteChampList[0].stats.totalSessionsWon*100)/(summonerFavoriteChampList[0].stats.totalSessionsWon+summonerFavoriteChampList[0].stats.totalSessionsLost) | number:2}}% )</p>
-            <p>{{summonerTop3Champ}}</p>
+            <p ng-repeat="summonerFavoriteChampItem in summonerFavoriteChampList">
+                {{summonerFavoriteChampItem.stats.totalSessionsPlayed}} games ( {{(summonerFavoriteChampItem.stats.totalSessionsWon*100)/(summonerFavoriteChampItem.stats.totalSessionsWon+summonerFavoriteChampItem.stats.totalSessionsLost) | number:2}}% )
+<!--                 <div ng-if="summonerFavoriteChampItem.id === championList.id">
+                   <p>{{summonerFavoriteChampItem.stats.totalSessionsPlayed}} played / {{ (summonerFavoriteChampItem.stats.totalSessionsWon*100)/(summonerFavoriteChampItem.stats.totalSessionsWon+summonerFavoriteChampItem.stats.totalSessionsLost) | number:2 }} %</p>
+
+                    <p>KDA : {{(summonerFavoriteChampItem.stats.totalChampionKills+summonerFavoriteChampItem.stats.totalAssists)/summonerFavoriteChampItem.stats.totalDeathsPerSession | number:2}} ( {{(summonerFavoriteChampItem.stats.totalChampionKills/summonerFavoriteChampItem.stats.totalSessionsPlayed) | number:2}} /
+                    {{(summonerFavoriteChampItem.stats.totalDeathsPerSession/summonerFavoriteChampItem.stats.totalSessionsPlayed) | number:2}} /
+                    {{(summonerFavoriteChampItem.stats.totalAssists/summonerFavoriteChampItem.stats.totalSessionsPlayed) | number:0}} )</p>
+                </div> -->
+            </p>
+<!--             <p>{{summonerFavoriteChampList[0].stats.totalSessionsPlayed}} games ( {{(summonerFavoriteChampList[0].stats.totalSessionsWon*100)/(summonerFavoriteChampList[0].stats.totalSessionsWon+summonerFavoriteChampList[0].stats.totalSessionsLost) | number:2}}% )</p>
+            <p>{{summonerTop3Champ}}</p> -->
         </div>
     </div>
 </section>

@@ -31,6 +31,14 @@ webadminControllers.controller('SidebarCtrl', [
             });
         };
 
+        $scope.getSummonerTop3ChampDocument = function(idList) {
+            console.log('getChampById');
+            EnnemyPickService.getChampById(idList).then(function(result) {
+                // $scope.summonerRank = result[0];
+                console.log('result', result[0]);
+            });
+        };
+
         $scope.summonerName = LocalStorage.loadStorage();
         $scope.summonerFavoriteChampList=[2];
         $scope.summonerTop3=[];
