@@ -28,19 +28,17 @@ webadminControllers.controller('SidebarCtrl', [
                 $scope.summonerFavoriteChampList[2] = topChamp[2];
                 // console.log('summonerFavoriteChampList', result);
                 console.log('topChamp', $scope.summonerFavoriteChampList);
-                // for (var j = 0; j < $scope.summonerFavoriteChampList.length; j++) {
-                //     EnnemyPickService.getChampById($scope.summonerFavoriteChampList[j].id).then(function(result2) {
-                //         // console.log('getChampById', $scope.summonerFavoriteChampList[i].id);
-                //         console.log('result2', result2[0].value);
-                //         temp=result2[0].value;
-                //     });
-                //     top3champ[j]=temp;
-                // };
+                for (var j = 0; j < $scope.summonerFavoriteChampList.length; j++) {
+                    EnnemyPickService.getChampById($scope.summonerFavoriteChampList[j].id).then(function(result2) {
+                        $scope.summonerTop3Champ[j]=result2;
+                    });
+                };
             });
         };
 
         $scope.summonerName = LocalStorage.loadStorage();
         $scope.summonerFavoriteChampList=[2];
+        $scope.summonerTop3Champ=[2];
         $scope.getSummonerRank();
         $scope.getSummonerFavoriteChamp();
     }
