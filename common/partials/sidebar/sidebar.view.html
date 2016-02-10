@@ -26,7 +26,7 @@
             <div ng-repeat="championIdItem in championIdList">
                 <p ng-repeat="summonerFavoriteChampItem in summonerFavoriteChampList |limitTo:3">
                     <span ng-if="championIdItem.value.id == summonerFavoriteChampItem.id">
-                        <img ng-src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/champion/{{championIdItem.value.key}}.png" style="width='30px'; height='30px';" alt=""> {{summonerFavoriteChampItem.stats.totalSessionsPlayed}} games ( {{(summonerFavoriteChampItem.stats.totalSessionsWon*100)/(summonerFavoriteChampItem.stats.totalSessionsWon+summonerFavoriteChampItem.stats.totalSessionsLost) | number:2}}% )</span>
+                        <img ng-src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/champion/{{championIdItem.value.key}}.png" style="width:'30px'; height:'30px';" alt=""> {{summonerFavoriteChampItem.stats.totalSessionsPlayed}} games ( {{(summonerFavoriteChampItem.stats.totalSessionsWon*100)/(summonerFavoriteChampItem.stats.totalSessionsWon+summonerFavoriteChampItem.stats.totalSessionsLost) | number:2}}% )</span>
 
                 </p>
             </div>
