@@ -23,7 +23,7 @@ webadminControllers.controller('SidebarCtrl', [
                 topChamp.sort(function(a, b) {
                     return parseFloat(b.stats.totalSessionsPlayed) - parseFloat(a.stats.totalSessionsPlayed);
                 });
-                $scope.summonerTop3 = [topChamp[0].id, topChamp[1].id, topChamp[2].id);
+                $scope.summonerTop3 = [topChamp[0].id, topChamp[1].id, topChamp[2].id];
                 $scope.summonerFavoriteChampList = topChamp;
                 // console.log('summonerFavoriteChampList', result);
                 console.log('topChamp', $scope.summonerFavoriteChampList);
