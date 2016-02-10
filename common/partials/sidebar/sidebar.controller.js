@@ -37,7 +37,7 @@ webadminControllers.controller('SidebarCtrl', [
 
 
         $scope.summonerName = LocalStorage.loadStorage();
-        $scope.summonerFavoriteChampList=[2];
+        $scope.summonerFavoriteChampList=[];
         $scope.summonerTop3=[];
         $scope.championIdList=[];
         $scope.getSummonerRank();
