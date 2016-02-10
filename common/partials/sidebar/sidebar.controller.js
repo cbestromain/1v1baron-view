@@ -31,13 +31,13 @@ webadminControllers.controller('SidebarCtrl', [
                     EnnemyPickService.getChampById($scope.summonerFavoriteChampList[j].id).then(function(result2) {
                         // console.log('getChampById', $scope.summonerFavoriteChampList[i].id);
                         console.log('result2', result2);
-                        top3champ[j]=result2;
                     }, function(err) {
                         console.log('error', err);
                     }); 
+                        top3champ[j]=result2;
 
-                console.log('top3champ', top3champ);
                 };
+                console.log('top3champ', top3champ);
             });
         };
 
