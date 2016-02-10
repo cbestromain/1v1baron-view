@@ -23,9 +23,9 @@
 
         <div class="pull-left info">
             <p>SEASON 6 TOP CHAMP: </p>
-            
+
             <p ng-repeat="summonerFavoriteChampItem in summonerFavoriteChampList |limitTo:3">
-                {{summonerFavoriteChampItem.stats.totalSessionsPlayed}} games ( {{(summonerFavoriteChampItem.stats.totalSessionsWon*100)/(summonerFavoriteChampItem.stats.totalSessionsWon+summonerFavoriteChampItem.stats.totalSessionsLost) | number:2}}% )
+                {{summonerFavoriteChampItem.id}} - {{summonerFavoriteChampItem.stats.totalSessionsPlayed}} games ( {{(summonerFavoriteChampItem.stats.totalSessionsWon*100)/(summonerFavoriteChampItem.stats.totalSessionsWon+summonerFavoriteChampItem.stats.totalSessionsLost) | number:2}}% )
 <!--                 <div ng-if="summonerFavoriteChampItem.id === championList.id">
                    <p>{{summonerFavoriteChampItem.stats.totalSessionsPlayed}} played / {{ (summonerFavoriteChampItem.stats.totalSessionsWon*100)/(summonerFavoriteChampItem.stats.totalSessionsWon+summonerFavoriteChampItem.stats.totalSessionsLost) | number:2 }} %</p>
 
