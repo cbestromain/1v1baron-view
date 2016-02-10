@@ -11,6 +11,13 @@ webadminControllers.controller('SidebarCtrl', [
             });
         };
 
+        $scope.getAllChamp = function() {
+           EnnemyPickService.getAllChamp().then(function(result) {
+                $scope.championList = result;
+                console.log('getAllChamp', result);
+            });
+        };
+
         $scope.getSummonerFavoriteChamp = function() {
             var topChamp=[];
             SuggestPickService.getSummonerFavoriteChamp(LocalStorage.loadStorage().id).then(function(result) {
@@ -23,26 +30,18 @@ webadminControllers.controller('SidebarCtrl', [
                 topChamp.sort(function(a, b) {
                     return parseFloat(b.stats.totalSessionsPlayed) - parseFloat(a.stats.totalSessionsPlayed);
                 });
-                $scope.summonerTop3 = [topChamp[0].id, topChamp[1].id, topChamp[2].id];
                 $scope.summonerFavoriteChampList = topChamp;
-                // console.log('summonerFavoriteChampList', result);
                 console.log('topChamp', $scope.summonerFavoriteChampList);
-                console.log('$scope.summonerTop3', $scope.summonerTop3);
             });
         };
 
-        $scope.getSummonerTop3ChampDocument = function(idList) {
-            console.log('getChampById');
-            EnnemyPickService.getChampById(idList).then(function(result) {
-                // $scope.summonerRank = result[0];
-                console.log('result', result[0]);
-            });
-        };
 
         $scope.summonerName = LocalStorage.loadStorage();
         $scope.summonerFavoriteChampList=[2];
         $scope.summonerTop3=[];
         $scope.getSummonerRank();
         $scope.getSummonerFavoriteChamp();
+        $scope.getAllChamp();
+
     }
 ]);
