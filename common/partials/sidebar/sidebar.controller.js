@@ -14,7 +14,7 @@ webadminControllers.controller('SidebarCtrl', [
         $scope.getChampById = function() {
            EnnemyPickService.getChampById().then(function(result) {
                 $scope.championIdList = result;
-                console.log('getChampById', result);
+                console.log('championIdList', championIdList);
             });
         };
 
@@ -31,7 +31,7 @@ webadminControllers.controller('SidebarCtrl', [
                     return parseFloat(b.stats.totalSessionsPlayed) - parseFloat(a.stats.totalSessionsPlayed);
                 });
                 $scope.summonerFavoriteChampList = topChamp;
-                console.log('topChamp', $scope.summonerFavoriteChampList);
+                console.log('summonerFavoriteChampList', $scope.summonerFavoriteChampList);
             });
         };
 
