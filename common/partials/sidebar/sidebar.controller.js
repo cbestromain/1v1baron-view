@@ -12,7 +12,8 @@ webadminControllers.controller('SidebarCtrl', [
         };
 
         $scope.getSummonerFavoriteChamp = function() {
-            var topChamp=[]
+            var topChamp=[];
+            var top3champ=[];
             SuggestPickService.getSummonerFavoriteChamp(LocalStorage.loadStorage().id).then(function(result) {
                 // $scope.summonerFavoriteChampList = result;
                 for (var i = 0; i < result.champions.length; i++) {
@@ -28,14 +29,14 @@ webadminControllers.controller('SidebarCtrl', [
                 console.log('topChamp', $scope.summonerFavoriteChampList);
                 for (var i = 0; i < 3; i++) {
                     EnnemyPickService.getChampById($scope.summonerFavoriteChampList[i].id).then(function(result2) {
-                        console.log('getChampById', $scope.summonerFavoriteChampList[i].id);
+                        // console.log('getChampById', $scope.summonerFavoriteChampList[i].id);
                         console.log('result2', result2);
-                        $scope.top3champ+=result2;
+                        top3champ+=result2;
                     }, function(err) {
                         console.log('error', err);
                     }); 
                 };
-                console.log('$scope.top3champ', $scope.top3champ);
+                console.log('top3champ', top3champ);
             });
         };
 
