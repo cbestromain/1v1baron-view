@@ -25,6 +25,7 @@
             <p>SEASON 6 TOP CHAMP: </p>
 
             <p ng-repeat="summonerFavoriteChampItem in summonerFavoriteChampList |limitTo:3">
+                {{summonerFavoriteChampItem.id}} LA
                 <div ng-repeat="championIdItem in championIdList">
                 {{championIdItem.value.id}} --
                 {{summonerFavoriteChampItem.id}}
