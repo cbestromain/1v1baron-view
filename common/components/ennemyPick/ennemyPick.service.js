@@ -59,7 +59,7 @@ webadminServices.service('EnnemyPickService', function($http, $q) {
     }
 
     function getChampById(id) {
-        console.log('getChampById');
+        console.log('getChampById', id);
         var request = $http({
             method: 'POST',
             url: 'http://51.254.115.94:1337/getChampById',
