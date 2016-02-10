@@ -40,6 +40,7 @@ webadminControllers.controller('SidebarCtrl', [
         };
 
         $scope.summonerName = LocalStorage.loadStorage();
+        $scope.summonerFavoriteChampList=[2];
         $scope.getSummonerRank();
         $scope.getSummonerFavoriteChamp();
     }
