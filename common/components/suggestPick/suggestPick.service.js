@@ -21,7 +21,7 @@ webadminServices.service('SuggestPickService', function($http, $q) {
     }
 
     function getSummonerFavoriteChamp(id) {
-        console.log('getSummonerFavoriteChamp', id);
+        // console.log('getSummonerFavoriteChamp', id);
         var request = $http({
             method: 'POST',
             url: 'http://51.254.115.94:1337/getSummonerFavoriteChamp',
