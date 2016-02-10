@@ -26,6 +26,15 @@ webadminControllers.controller('SidebarCtrl', [
                 $scope.summonerFavoriteChampList = topChamp
                 // console.log('summonerFavoriteChampList', result);
                 console.log('topChamp', $scope.summonerFavoriteChampList);
+                for (var i = 0; i < 3; i++) {
+                    EnnemyPickService.getChampById(topChamp[i].id).then(function(result2) {
+                        console.log('result2', result2);
+                        $scope.top3champ+=result2;
+                    }, function(err) {
+                        console.log('error', err);
+                    }); 
+                };
+                console.log('$scope.top3champ', $scope.top3champ);
             });
         };
 
