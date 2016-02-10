@@ -28,14 +28,12 @@ webadminControllers.controller('SidebarCtrl', [
                 $scope.summonerFavoriteChampList = topChamp
                 // console.log('summonerFavoriteChampList', result);
                 console.log('topChamp', $scope.summonerFavoriteChampList);
-                for (var j = 0; j < 3; j++) {
+                for (var j = 0; j < $scope.summonerFavoriteChampList.length; j++) {
                     EnnemyPickService.getChampById($scope.summonerFavoriteChampList[j].id).then(function(result2) {
                         // console.log('getChampById', $scope.summonerFavoriteChampList[i].id);
                         console.log('result2', result2[0].value);
                         temp=result2[0].value;
-                    }, function(err) {
-                        console.log('error', err);
-                    }); 
+                    }
                     top3champ[j]=temp;
                 };
                 console.log('top3champ', top3champ);
