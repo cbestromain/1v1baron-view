@@ -35,8 +35,9 @@ webadminControllers.controller('SidebarCtrl', [
                     }, function(err) {
                         console.log('error', err);
                     }); 
-                };
+                    
                 console.log('top3champ', top3champ);
+                };
             });
         };
 
