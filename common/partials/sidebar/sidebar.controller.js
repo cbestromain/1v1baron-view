@@ -33,7 +33,7 @@ webadminControllers.controller('SidebarCtrl', [
                         // console.log('getChampById', $scope.summonerFavoriteChampList[i].id);
                         console.log('result2', result2[0].value);
                         temp=result2[0].value;
-                    }
+                    });
                     top3champ[j]=temp;
                 };
                 console.log('top3champ', top3champ);
