@@ -14,8 +14,8 @@ webadminControllers.controller('HomeCtrl', [
 					$location.path('/ennemyPick').replace();
                 }
             }, function(err) {
-            	console.log('error', err);
                 $scope.errorMessage = err;
+            	console.log('error', $scope.errorMessage);
             });
 			
         };
