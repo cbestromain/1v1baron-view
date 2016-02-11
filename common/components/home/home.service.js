@@ -22,7 +22,11 @@ webadminServices.service('HomeService', function($http, $q) {
     function handleError(response) {
         console.log('response', response);
         if (!angular.isObject(response.data) || !response.data.message) {
-            return ($q.reject('An error occurred, please retry.'));
+            if(response.status == 404){
+                return ($q.reject(response.data));
+            } else {
+                return ($q.reject('An error occurred, please retry.'));
+            }
         }
         return ($q.reject(response.data.message));
     }
