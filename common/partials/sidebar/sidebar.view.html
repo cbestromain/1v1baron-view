@@ -17,7 +17,7 @@
             <p>{{summonerRank.tier}} {{summonerRank.entries[0].division}} - {{summonerRank.entries[0].leaguePoints}} LP</p>
             <p ng-if="summonerRank.entries[0].miniSeries" class="miniSeries">Series In Progress</p>
             <p ng-if="summonerRank.entries[0].miniSeries" class="miniSeries">{{miniSeries}}</p>
-            <p ng-repeat="miniSeriesItem in [W,L,N] track by $index">
+            <p ng-repeat="miniSeriesItem in ['W','L','N'] track by $index">
                 <p>{{miniSeriesItem}}</p>
                 <img ng-if="miniSeriesItem == 'W'" src="assets/img/baron_win.png" alt="Win" />
                 <img ng-if="miniSeriesItem == 'L'" src="assets/img/baron_loose.png" alt="Loose" />
