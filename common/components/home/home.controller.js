@@ -19,7 +19,7 @@ webadminControllers.controller('HomeCtrl', [
             });
 			
         };
-
+    $scope.errorMessage = ""
 
     }
 
