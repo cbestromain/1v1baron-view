@@ -8,8 +8,8 @@ webadminControllers.controller('SidebarCtrl', [
             EnnemyPickService.getSummonerRank(LocalStorage.loadStorage().id).then(function(result) {
                 $scope.summonerRank = result[0];
                 
-                // console.log('getSummonerRank', result[0]);
-                for (var i = 0; i < $scope.summonerRank.entries[0].length; i++) {
+                console.log('getSummonerRank', result[0]);
+                for (var i = 0; i < $scope.summonerRank.entries[0].miniSeries.progress.length; i++) {
                     $scope.miniSeries[i]=$scope.summonerRank.entries[0][i];
                     // if($scope.miniSeries[i]=='L'){
                     //     <img src="assets/img/baron_win.png" alt="Win" />
