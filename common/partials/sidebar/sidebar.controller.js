@@ -7,8 +7,19 @@ webadminControllers.controller('SidebarCtrl', [
             console.log('getSummonerRank');
             EnnemyPickService.getSummonerRank(LocalStorage.loadStorage().id).then(function(result) {
                 $scope.summonerRank = result[0];
-                $scope.miniSeries = result[0].entries[0].miniSeries.progress;
+                
                 // console.log('getSummonerRank', result[0]);
+                for (var i = 0; i < $scope.summonerRank.entries[0].length; i++) {
+                    $scope.miniSeries[i]=$scope.summonerRank.entries[0][i];
+                    // if($scope.miniSeries[i]=='L'){
+                    //     <img src="assets/img/baron_win.png" alt="Win" />
+                    // } else if ($scope.miniSeries == 'W'){
+                    //     <img src="assets/img/baron_loose.png" alt="Loose" />
+                    // } else if ($scope.miniSeries == 'N'){
+                    //     <img src="assets/img/baron_unplayed.png" alt="Not Played" />
+                    // }
+                };
+                
             });
         };
 
@@ -39,6 +50,7 @@ webadminControllers.controller('SidebarCtrl', [
 
         $scope.summonerName = LocalStorage.loadStorage();
         $scope.summonerFavoriteChampList=[];
+        $scope.miniSeries = [];
         $scope.summonerTop3=[];
         $scope.championIdList=[];
         $scope.getSummonerRank();
