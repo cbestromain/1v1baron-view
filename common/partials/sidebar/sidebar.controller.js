@@ -9,16 +9,18 @@ webadminControllers.controller('SidebarCtrl', [
                 $scope.summonerRank = result[0];
                 
                 console.log('getSummonerRank', result[0]);
-                for (var i = 0; i < $scope.summonerRank.entries[0].miniSeries.progress.length; i++) {
-                    $scope.miniSeries[i]=$scope.summonerRank.entries[0].miniSeries.progress[i];
-                    // if($scope.miniSeries[i]=='L'){
-                    //     <img src="assets/img/baron_win.png" alt="Win" />
-                    // } else if ($scope.miniSeries == 'W'){
-                    //     <img src="assets/img/baron_loose.png" alt="Loose" />
-                    // } else if ($scope.miniSeries == 'N'){
-                    //     <img src="assets/img/baron_unplayed.png" alt="Not Played" />
-                    // }
-                };
+                if($scope.summonerRank.entries[0].miniSeries){
+                    for (var i = 0; i < $scope.summonerRank.entries[0].miniSeries.progress.length; i++) {
+                        $scope.miniSeries[i]=$scope.summonerRank.entries[0].miniSeries.progress[i];
+                        // if($scope.miniSeries[i]=='L'){
+                        //     <img src="assets/img/baron_win.png" alt="Win" />
+                        // } else if ($scope.miniSeries == 'W'){
+                        //     <img src="assets/img/baron_loose.png" alt="Loose" />
+                        // } else if ($scope.miniSeries == 'N'){
+                        //     <img src="assets/img/baron_unplayed.png" alt="Not Played" />
+                        // }
+                    };
+                }
                 
             });
         };
