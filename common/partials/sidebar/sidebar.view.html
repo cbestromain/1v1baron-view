@@ -18,6 +18,7 @@
             <p ng-if="summonerRank.entries[0].miniSeries" class="miniSeries">Series In Progress</p>
             <p ng-if="summonerRank.entries[0].miniSeries" class="miniSeries">{{miniSeries}}</p>
             <p ng-repeat="miniSeriesItem in miniSeries">
+                <p>{{miniSeriesItem}}</p>
                 <img ng-if="miniSeriesItem == 'W'" src="assets/img/baron_win.png" alt="Win" />
                 <img ng-if="miniSeriesItem == 'L'" src="assets/img/baron_loose.png" alt="Loose" />
                 <img ng-if="miniSeriesItem == 'N'" src="assets/img/baron_unplayed.png" alt="Not Played" />
