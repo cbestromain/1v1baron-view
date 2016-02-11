@@ -43,6 +43,7 @@
                                         <div class="col-md-3">
                                             <img ng-src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/champion/{{counterItem.value.champion}}.png" alt="">
                                             <p>{{counterItem.value.champion}}</p>
+                                            <rating ng-model="counterItem.key[1]" max="max" readonly="isReadonly" state-on="'baron-on'" state-off="'baron-off'"></rating>
                                             <p>{{counterItem.key[1]}}</p>
                                         </div>
                                         <div class="col-md-3">
