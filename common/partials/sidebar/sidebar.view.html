@@ -15,6 +15,7 @@
 
         <div class="pull-left info">
             <p>{{summonerRank.tier}} {{summonerRank.entries[0].division}} - {{summonerRank.entries[0].leaguePoints}} LP</p>
+            <p ng-if="summonerRank.entries[0].miniSeries" class="miniSeries">Series In Progress</p>
             <p ng-if="summonerRank.entries[0].miniSeries" class="miniSeries">{{summonerRank.entries[0].miniSeries.progress}}</p>
             <p ng-if="summonerRank.entries[0].isHotStreak" class="hotStreak">winning streak (3 or more)</p>
             <p>{{summonerRank.entries[0].wins}} wins</p>
