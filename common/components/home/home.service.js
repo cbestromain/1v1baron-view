@@ -20,6 +20,7 @@ webadminServices.service('HomeService', function($http, $q) {
 
 
     function handleError(response) {
+        console.log('response', response);
         if (!angular.isObject(response.data) || !response.data.message) {
             return ($q.reject('An error occurred, please retry.'));
         }
