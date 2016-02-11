@@ -10,7 +10,7 @@ webadminControllers.controller('SidebarCtrl', [
                 
                 console.log('getSummonerRank', result[0]);
                 for (var i = 0; i < $scope.summonerRank.entries[0].miniSeries.progress.length; i++) {
-                    $scope.miniSeries[i]=$scope.summonerRank.entries[0][i];
+                    $scope.miniSeries[i]=$scope.summonerRank.entries[0].miniSeries.progress[i];
                     // if($scope.miniSeries[i]=='L'){
                     //     <img src="assets/img/baron_win.png" alt="Win" />
                     // } else if ($scope.miniSeries == 'W'){
