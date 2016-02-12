@@ -42,20 +42,25 @@ webadminControllers.controller('SidebarCtrl', [
             SuggestPickService.getSummonerFavoriteChamp(LocalStorage.loadStorage().id).then(function(result) {
                 // $scope.summonerFavoriteChampList = result;
                 console.log('GETSUMFAV CHAMP', result);
-                for (var i = 0; i < result.champions.length; i++) {
-                    if(result.champions[i].id != 0) {
-                        topChamp[i]=result.champions[i];
-                    }
-                };
-                topChamp.sort(function(a, b) {
-                    return parseFloat(b.stats.totalSessionsPlayed) - parseFloat(a.stats.totalSessionsPlayed);
-                });
-                $scope.summonerFavoriteChampList = topChamp;
-                console.log('summonerFavoriteChampList', $scope.summonerFavoriteChampList);
+                if(result == 'NoGamePlayed') {
+                    $scope.summonerFavoriteChampListEmpty = true;
+                } else {
+                    for (var i = 0; i < result.champions.length; i++) {
+                        if(result.champions[i].id != 0) {
+                            topChamp[i]=result.champions[i];
+                        }
+                    };
+                    topChamp.sort(function(a, b) {
+                        return parseFloat(b.stats.totalSessionsPlayed) - parseFloat(a.stats.totalSessionsPlayed);
+                    });
+                    $scope.summonerFavoriteChampList = topChamp;
+                    console.log('summonerFavoriteChampList', $scope.summonerFavoriteChampList);
+                }
             });
         };
+                    
 
-
+        $scope.summonerFavoriteChampListEmpty=false;
         $scope.summonerName = LocalStorage.loadStorage();
         $scope.summonerFavoriteChampList=[];
         $scope.miniSeries = [];

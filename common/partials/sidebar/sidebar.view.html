@@ -38,7 +38,8 @@
 
         <div class="pull-left info">
             <p>SEASON 6 TOP CHAMP: </p>
-            <div ng-repeat="summonerFavoriteChampItem in summonerFavoriteChampList |limitTo:5">
+            <div ng-if="summonerFavoriteChampListEmpty">NO CHAMP PLAYED</div>
+            <div ng-if ="!summonerFavoriteChampListEmpty" ng-repeat="summonerFavoriteChampItem in summonerFavoriteChampList |limitTo:5">
                 <p ng-repeat="championIdItem in championIdList">
                     <span ng-if="championIdItem.value.id == summonerFavoriteChampItem.id">
                         <img ng-src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/champion/{{championIdItem.value.key}}.png" style="width:30px; height:30px;" alt=""> {{summonerFavoriteChampItem.stats.totalSessionsPlayed}} games ( {{(summonerFavoriteChampItem.stats.totalSessionsWon*100)/(summonerFavoriteChampItem.stats.totalSessionsWon+summonerFavoriteChampItem.stats.totalSessionsLost) | number:2}}% )
