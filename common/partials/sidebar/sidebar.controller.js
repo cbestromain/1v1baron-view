@@ -4,11 +4,11 @@ webadminControllers.controller('SidebarCtrl', [
     '$scope', '$location', 'LocalStorage', 'EnnemyPickService', 'SuggestPickService',
     function($scope, $location, LocalStorage, EnnemyPickService, SuggestPickService) {
         $scope.getSummonerRank = function() {
-            console.log('getSummonerRank');
+            // console.log('getSummonerRank');
             EnnemyPickService.getSummonerRank(LocalStorage.loadStorage().id).then(function(result) {
+                console.log('getSummonerRank result', result);
                 $scope.summonerRank = result[0];
                 
-                console.log('getSummonerRank', result[0]);
                 if($scope.summonerRank.entries[0].miniSeries){
                     for (var i = 0; i < $scope.summonerRank.entries[0].miniSeries.progress.length; i++) {
                         $scope.miniSeries[i]=$scope.summonerRank.entries[0].miniSeries.progress[i];
