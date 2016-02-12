@@ -10,11 +10,11 @@
 
         <div class="">
             <!-- <img ng-src="http://www.1v1baron.com/assets/img/tier/GOLD_II.png" alt=""> -->
-	    <img ng-if="summonerRank.data != 'Unranked'" ng-src="/assets/img/tier/{{summonerRank.tier}}_{{summonerRank.entries[0].division}}.png" alt="">
-        <img ng-if="summonerRank.data == 'Unranked'" ng-src="/assets/img/tier/UNRANKED.png" alt="Unranked">
+	    <img ng-if="summonerRank != 'Unranked'" ng-src="/assets/img/tier/{{summonerRank.tier}}_{{summonerRank.entries[0].division}}.png" alt="">
+        <img ng-if="summonerRank == 'Unranked'" ng-src="/assets/img/tier/UNRANKED.png" alt="Unranked">
         </div>
 
-        <div ng-if="summonerRank.data != 'Unranked'" class="pull-left info">
+        <div ng-if="summonerRank != 'Unranked'" class="pull-left info">
             <p>{{summonerRank.tier}} {{summonerRank.entries[0].division}} - {{summonerRank.entries[0].leaguePoints}} LP</p>
             <p ng-if="summonerRank.entries[0].miniSeries" class="miniSeries">Series In Progress</p>
             <!-- <p ng-if="summonerRank.entries[0].miniSeries" class="miniSeries">{{miniSeries}}</p> -->
@@ -32,7 +32,7 @@
             <p>{{ (summonerRank.entries[0].wins*100)/(summonerRank.entries[0].wins+summonerRank.entries[0].losses) | number:2 }} %</p>
         </div>
 
-        <div ng-if="summonerRank.data == 'Unranked'" class="pull-left info">
+        <div ng-if="summonerRank == 'Unranked'" class="pull-left info">
             <p>Unranked</p>
         </div>
 
