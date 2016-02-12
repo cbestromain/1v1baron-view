@@ -68,7 +68,7 @@ webadminServices.service('EnnemyPickService', function($http, $q) {
     }
 
     function handleError(response) {
-        // console.log('response', response);
+        console.log('response', response);
         if (!angular.isObject(response.data) || !response.data.message) {
             if(response.status == 404){
                 return ($q.reject(response.data));
