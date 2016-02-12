@@ -20,13 +20,13 @@ webadminControllers.controller('EnnemyPickCtrl', [
             });
         };
 
-        $scope.getSummonerRank = function() {
-            console.log('getSummonerRank');
-           EnnemyPickService.getSummonerRank(LocalStorage.loadStorage().id).then(function(result) {
-                $scope.summonerRank = result[0];
-                // console.log('result', result[0]);
-            });
-        };
+        // $scope.getSummonerRank = function() {
+        //     console.log('getSummonerRank');
+        //    EnnemyPickService.getSummonerRank(LocalStorage.loadStorage().id).then(function(result) {
+        //         $scope.summonerRank = result[0];
+        //         // console.log('result', result[0]);
+        //     });
+        // };
 
 
         $scope.selectChamp = function() {
@@ -48,7 +48,7 @@ webadminControllers.controller('EnnemyPickCtrl', [
         $scope.championList = [];
         $scope.filterChamp = '';
         $scope.getAllChamp();
-        $scope.getSummonerRank();
+        // $scope.getSummonerRank();
 
 
 
