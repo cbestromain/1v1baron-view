@@ -29,7 +29,7 @@ webadminServices.service('SuggestPickService', function($http, $q) {
                 id: id
             }
         });
-        return (request.then(handleSuccess, handleError));
+        return (request.then(handleSuccess, handle404));
     }
 
     function getAllChamp() {
