@@ -5,7 +5,7 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-xs-12 col-sm-8 col-sm-offset-2">
+		<form ng-submit="validSummoner(summoner)" class="col-xs-12 col-sm-8 col-sm-offset-2">
 			<div class="col-xs-12 col-sm-8">
 				<div class="form-group">
                 	<input type="text" class="form-control" placeholder="Enter summoner name..." ng-model="summoner.summonerName" />
@@ -29,10 +29,10 @@
 		    </div>
 		    <div class="col-xs-3 col-sm-1">
 	            <div class="form-group">
-			    	<button type="button" class="btn btn-default" ng-click="validSummoner(summoner)">OK</button>
+			    	<input type="submit" class="btn btn-default" value="OK"/>
 			    </div>
             </div>
-		</div>
+		</form>
 	</div>
 	<div class="row">
 		<div class="col-xs-12 utils" style='color:red;' ng-if="errorMessage!=null">
