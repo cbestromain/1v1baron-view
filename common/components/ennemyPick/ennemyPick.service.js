@@ -67,6 +67,13 @@ webadminServices.service('EnnemyPickService', function($http, $q) {
         return (request.then(handleSuccess, handleError));
     }
 
+    // function handleError(response) {
+    //     if (!angular.isObject(response.data) || !response.data.message) {
+    //         return ($q.reject('An error occurred, please retry.'));
+    //     }
+    //     return ($q.reject(response.data.message));
+    // }
+
     function handleError(response) {
         console.log('response', response);
         if (!angular.isObject(response.data) || !response.data.message) {
@@ -77,7 +84,7 @@ webadminServices.service('EnnemyPickService', function($http, $q) {
             }
         }
         return ($q.reject(response.data.message));
-    }
+    }    
 
     function handleSuccess(response) {
         return (response.data);
