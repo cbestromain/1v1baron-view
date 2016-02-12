@@ -7,7 +7,12 @@ webadminControllers.controller('SidebarCtrl', [
             // console.log('getSummonerRank');
             EnnemyPickService.getSummonerRank(LocalStorage.loadStorage().id).then(function(result) {
                 console.log('getSummonerRank result', result);
-                $scope.summonerRank = result[0];
+                if(result.data == "Unranked"){
+                    $scope.summonerRank = 'Unranked';
+                } else {
+                    $scope.summonerRank = result[0];
+                }
+                    
                 
                 if($scope.summonerRank.entries[0].miniSeries){
                     for (var i = 0; i < $scope.summonerRank.entries[0].miniSeries.progress.length; i++) {
