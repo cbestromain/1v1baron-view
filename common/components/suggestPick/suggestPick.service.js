@@ -49,6 +49,18 @@ webadminServices.service('SuggestPickService', function($http, $q) {
         return ($q.reject(response.data.message));
     }
 
+    function handle404(response) {
+        console.log('response', response);
+        if (!angular.isObject(response.data) || !response.data.message) {
+            if(response.status == 404){
+                return (response.data);
+            } else {
+                return ($q.reject('An error occurred, please retry.'));
+            }
+        }
+        return ($q.reject(response.data.message));
+    }    
+
     function handleSuccess(response) {
         return (response.data);
     }

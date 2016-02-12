@@ -41,6 +41,7 @@ webadminControllers.controller('SidebarCtrl', [
             var topChamp=[];
             SuggestPickService.getSummonerFavoriteChamp(LocalStorage.loadStorage().id).then(function(result) {
                 // $scope.summonerFavoriteChampList = result;
+                console.log('GETSUMFAV CHAMP', result);
                 for (var i = 0; i < result.champions.length; i++) {
                     if(result.champions[i].id != 0) {
                         topChamp[i]=result.champions[i];
