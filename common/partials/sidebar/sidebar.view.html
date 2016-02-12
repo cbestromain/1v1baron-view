@@ -19,14 +19,9 @@
             <!-- <p ng-if="summonerRank.entries[0].miniSeries" class="miniSeries">{{miniSeries}}</p> -->
             <div ng-if="summonerRank.entries[0].miniSeries" style='display:inline;'>
                 <span ng-repeat="miniSeriesItem in miniSeries track by $index">
-                    <!-- <img ng-if="miniSeriesItem == 'W'" src="assets/img/baron_win.png" alt="Win" /> -->
-                    <!-- <i class="glyphicon glyphicon-ok-circle" ng-if="miniSeriesItem == 'W'" style="color:green"></i> -->
-                    <span ng-if="miniSeriesItem == 'W'" class="glyphicon glyphicon-thumbs-up" style="color: rgb(0, 189, 0);"></span>
-                    <span ng-if="miniSeriesItem == 'L'" class="glyphicon glyphicon-thumbs-down" style="color: rgb(194, 0, 0);"></span>
-                    <span ng-if="miniSeriesItem == 'N'" class="glyphicon glyphicon-plus" style="color: rgb(194, 0, 0);"></span>
-                    
-                    <!-- <img ng-if="miniSeriesItem == 'L'" src="assets/img/baron_loose.png" alt="Loose" /> -->
-                    <!-- <img ng-if="miniSeriesItem == 'N'" src="assets/img/baron_unplayed.png" alt="Not Played" /> -->
+                    <img ng-if="miniSeriesItem == 'W'" src="assets/img/win.png" alt="Win" />
+                    <img ng-if="miniSeriesItem == 'L'" src="assets/img/loose.png" alt="Loose" />
+                    <img ng-if="miniSeriesItem == 'N'" src="assets/img/notplayed.png" alt="Not Played" />
                 </span>
             </div>
             <!-- 1v1 Bar<img src="assets/img/baron.png" alt="YouActive" />n -->
