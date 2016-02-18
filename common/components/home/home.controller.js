@@ -11,7 +11,7 @@ webadminControllers.controller('HomeCtrl', [
                 if (summoner) {
                 	// console.log('summoner', summoner);
                     LocalStorage.saveStorage(summoner);
-					$location.path('/ennemyPick').replace();
+					$location.path('/lanePick').replace();
                 }
             }, function(err) {
                 $scope.errorMessage = err;

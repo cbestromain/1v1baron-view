@@ -9,6 +9,10 @@ webadmin.config(['$routeProvider',
                 templateUrl: 'common/components/home/home.view.html',
                 controller: 'HomeCtrl'
             })
+            .when('/lanePick', {
+                templateUrl: 'common/components/lanePick/lanePick.view.html',
+                controller: 'LanePickCtrl'
+            })
             .when('/ennemyPick', {
                 templateUrl: 'common/components/ennemyPick/ennemyPick.view.html',
                 controller: 'EnnemyPickCtrl'
