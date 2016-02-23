@@ -12,6 +12,7 @@
     <link type="text/css" rel="stylesheet" href="assets/css/morris.css" />
     <link type="text/css" rel="stylesheet" href="assets/css/adminlte.css" />
     <link type="text/css" rel="stylesheet" href="assets/css/1v1baron.css" />
+    <link type="text/css" rel="stylesheet" href="assets/css/mastery.css" />
 </head>
 
 <body class="skin-black fixed" ng-controller="GeneralCtrl">
@@ -46,6 +47,22 @@
     <script type="text/javascript" src="common/components/form/form.service.js"></script>
     <script type="text/javascript" src="common/partials/sidebar/sidebar.controller.js"></script>
     <script type="text/javascript" src="common/partials/topbar/topbar.controller.js"></script>
+
+    <script type="text/javascript" src="modules/mastery/calculator.js"></script>
+    <script type="text/javascript" src="modules/mastery/data.js"></script>
+    <script type="text/javascript" src="modules/mastery/mousewheel/jquery.mousewheel.js"></script>
+    <script type="text/javascript" src="modules/mastery/howler/howler.js"></script>
+    <script type="type/javascript">
+        // Preload sprites
+        (new Image()).src = "modules/mastery/images/button-icons.jpg";
+        (new Image()).src = "modules/mastery/images/frames.png";
+        (new Image()).src = "modules/mastery/images/keystone-bars.png";
+        (new Image()).src = "modules/mastery/images/tree-icons.png";
+    </script>
+    <!-- // <script type="text/javascript" src="modules/mastery/jquery/jquery.min.js"></script> -->
+    <link rel="stylesheet" href="modules/mastery/jquery/jquery-ui.css" type="text/css" />
+    <!-- // <script type="text/javascript" src="modules/mastery/jquery/jquery-1.10.2.js"></script> -->
+    <script type="text/javascript" src="modules/mastery/jquery/jquery-ui.js"></script>
 </body>
 
 </html>
