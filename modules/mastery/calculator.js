@@ -41,6 +41,8 @@ function drawCalculator() {
 
     // make tooltip
     var tip, maxDims = {width: $("#calculator").parent().width(), height: $("#calculator").parent().height()};
+    console.log('tip', tip);
+    console.log('maxDims', maxDims);
     $("#calculator")
         .contextmenu(function(event){ event.preventDefault() })
         .append(
@@ -349,8 +351,6 @@ function masteryButtonPosition(tree, index) {
 }
 
 function masterySpritePos(tree, index) {
-    console.log('tree', tree);
-    console.log('index', index);
     return 0 - BUTTON_SIZE * (treeOffsets[tree] + index);
 }
 
