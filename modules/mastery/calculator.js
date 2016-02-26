@@ -349,6 +349,8 @@ function masteryButtonPosition(tree, index) {
 }
 
 function masterySpritePos(tree, index) {
+    console.log('tree', tree);
+    console.log('index', index);
     return 0 - BUTTON_SIZE * (treeOffsets[tree] + index);
 }
 
@@ -594,6 +596,7 @@ for (var i=0; i<exportChars.length; i++) {
     importChars[exportChars[i]] = i;
 }
 function importMasteries(str) {
+    console.log('importMasteries');
     resetStates(true);
 
     var tree = 0;
@@ -642,6 +645,7 @@ function importMasteries(str) {
 }
 
 function updateMasteries() {
+    console.log('updateMasteries');
     importMasteries(document.location.hash.slice(1));
 }
 
