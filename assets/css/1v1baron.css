@@ -165,6 +165,18 @@ table td {
     border: none;
 }
 
+.masteryIcon {
+    width: 50px !important;
+    height: 50px !important;
+    opacity: .3;
+    border: none;
+}
+
+.selectedMastery {
+    opacity: 1 !important;
+    border: 3px solid green;
+}
+
 .selectedSpell {
     opacity: 1 !important;
     border: 3px solid green;
