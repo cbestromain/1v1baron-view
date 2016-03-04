@@ -33,6 +33,9 @@ webadminControllers.controller('FormCtrl', [
                         if ($scope.matchupDoc.spellOrder === undefined){
                             $scope.matchupDoc.spellOrder = [];
                         }
+                        if ($scope.matchupDoc.mastery === undefined){
+                            $scope.matchupDoc.mastery = [];
+                        }
                     }, function(err) {
                         console.log('error', err);
                     }); 
@@ -114,6 +117,27 @@ webadminControllers.controller('FormCtrl', [
 
         };
 
+
+        $scope.selectMastery = function(mastery) {
+            console.log('selectMastery ', mastery);
+            if($scope.matchupDoc.mastery.length >= 0){
+                if($scope.matchupDoc.mastery[0] == mastery){
+                    $scope.matchupDoc.mastery.splice(0,1);
+                }
+                else if($scope.matchupDoc.mastery[1] == mastery){
+                    $scope.matchupDoc.mastery.splice(1,1);
+                }
+                else {
+                    if($scope.matchupDoc.mastery.length<=1){
+                        $scope.matchupDoc.mastery.push(mastery);
+                    }
+                }
+
+            }
+                
+
+        };
+
         $scope.hoveringOver = function(value) {
             console.log('hoveringOver', value);
             $scope.overStar = value;
@@ -136,6 +160,7 @@ webadminControllers.controller('FormCtrl', [
         $scope.matchupDoc = {};
         $scope.champSpell = {};
         $scope.matchupDoc.summonerSpell = [];
+        $scope.matchupDoc.mastery = [];
         $scope.matchupDoc.spellOrder = [];
         $scope.showForm = false;
         // $scope.toto = "ok";
