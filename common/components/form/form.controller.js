@@ -124,9 +124,6 @@ webadminControllers.controller('FormCtrl', [
                 if($scope.matchupDoc.mastery[0] == mastery){
                     $scope.matchupDoc.mastery.splice(0,1);
                 }
-                else if($scope.matchupDoc.mastery[1] == mastery){
-                    $scope.matchupDoc.mastery.splice(1,1);
-                }
                 else {
                     if($scope.matchupDoc.mastery.length<=1){
                         $scope.matchupDoc.mastery.push(mastery);
