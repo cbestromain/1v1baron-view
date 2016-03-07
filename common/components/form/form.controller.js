@@ -135,6 +135,10 @@ webadminControllers.controller('FormCtrl', [
 
         };
 
+        $scope.resetSpellOrder = function() {
+            $scope.matchupDoc.spellOrder = [];
+        }
+
         $scope.hoveringOver = function(value) {
             console.log('hoveringOver', value);
             $scope.overStar = value;
