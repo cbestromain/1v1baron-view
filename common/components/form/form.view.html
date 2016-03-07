@@ -217,7 +217,7 @@
  -->
 
 						 <div class="form-group">
-		                        <label class="col-sm-3 control-label" for="mastery">Mastery</label>
+		                        <label class="col-sm-3 control-label" for="mastery">Mastery {{ matchupDoc.mastery }}</label>
 		                        <div class="col-sm-9">
 					            	<img src="assets/img/mastery/Bloodlust.png" ng-class="{ 'selectedMastery': matchupDoc.mastery[0] == 'Bloodlust' }" class="masteryIcon" ng-click="selectMastery('Bloodlust')" alt="Bloodlust" />
 					            	<img src="assets/img/mastery/Fervor.png" ng-class="{ 'selectedMastery': matchupDoc.mastery[0] == 'Fervor' }" class="masteryIcon" ng-click="selectMastery('Fervor')" alt="Fervor" />
@@ -233,6 +233,7 @@
 
 		                        </div>
 		                    </div>
+
 
 
 

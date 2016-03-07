@@ -125,7 +125,7 @@ webadminControllers.controller('FormCtrl', [
                     $scope.matchupDoc.mastery.splice(0,1);
                 }
                 else {
-                    if($scope.matchupDoc.mastery.length<=1){
+                    if($scope.matchupDoc.mastery.length<1){
                         $scope.matchupDoc.mastery.push(mastery);
                     }
                 }
