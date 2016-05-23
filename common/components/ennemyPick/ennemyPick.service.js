@@ -14,7 +14,8 @@ webadminServices.service('EnnemyPickService', function($http, $q) {
         console.log('getAllChamp');
         var request = $http({
             method: 'POST',
-            url: 'http://51.254.115.94:1337/getAllChamp'
+            // url: 'http://51.254.115.94:1337/getAllChamp'
+            url: 'http://www.1v1baron.com:1337/getAllChamp'
         });
         return (request.then(handleSuccess, handleError));
     }
@@ -23,7 +24,8 @@ webadminServices.service('EnnemyPickService', function($http, $q) {
         console.log('getSummonerRank');
         var request = $http({
             method: 'POST',
-            url: 'http://51.254.115.94:1337/getSummonerRank',
+            // url: 'http://51.254.115.94:1337/getSummonerRank',
+            url: 'http://www.1v1baron.com:1337/getSummonerRank',
             headers: {
                 id: id
             }
@@ -49,7 +51,8 @@ webadminServices.service('EnnemyPickService', function($http, $q) {
         console.log('getChampImg');
         var request = $http({
             method: 'POST',
-            url: 'http://51.254.115.94:1337/getChampImage',
+            // url: 'http://51.254.115.94:1337/getChampImage',
+            url: 'http://www.1v1baron.com:1337/getChampImage',
             headers: {
                 id: id
             }
@@ -61,7 +64,8 @@ webadminServices.service('EnnemyPickService', function($http, $q) {
     function getChampById() {
         var request = $http({
             method: 'POST',
-            url: 'http://51.254.115.94:1337/getChampById',
+            // url: 'http://51.254.115.94:1337/getChampById',
+            url: 'http://www.1v1baron.com:1337/getChampById',
         });
 
         return (request.then(handleSuccess, handleError));

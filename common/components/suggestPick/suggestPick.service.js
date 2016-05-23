@@ -12,7 +12,8 @@ webadminServices.service('SuggestPickService', function($http, $q) {
         console.log('getAllCounter', key);
         var request = $http({
             method: 'POST',
-            url: 'http://51.254.115.94:1337/getAllCounter',
+            // url: 'http://51.254.115.94:1337/getAllCounter',
+            url: 'http://www.1v1baron.com:1337/getAllCounter',
             headers: {
                 key: key
             }
@@ -24,7 +25,8 @@ webadminServices.service('SuggestPickService', function($http, $q) {
         // console.log('getSummonerFavoriteChamp', id);
         var request = $http({
             method: 'POST',
-            url: 'http://51.254.115.94:1337/getSummonerFavoriteChamp',
+            // url: 'http://51.254.115.94:1337/getSummonerFavoriteChamp',
+            url: 'http://www.1v1baron.com:1337/getSummonerFavoriteChamp',
             headers: {
                 id: id
             }
@@ -36,7 +38,8 @@ webadminServices.service('SuggestPickService', function($http, $q) {
         console.log('getAllChamp');
         var request = $http({
             method: 'POST',
-            url: 'http://51.254.115.94:1337/getAllChamp'
+            // url: 'http://51.254.115.94:1337/getAllChamp'
+            url: 'http://www.1v1baron.com:1337/getAllChamp'
         });
         return (request.then(handleSuccess, handleError));
     }

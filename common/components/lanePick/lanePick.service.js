@@ -10,7 +10,9 @@ webadminServices.service('LanePickService', function($http, $q) {
         console.log('getAllChamp');
         var request = $http({
             method: 'POST',
-            url: 'http://51.254.115.94:1337/getAllChamp'
+            // url: 'http://51.254.115.94:1337/getAllChamp'
+            url: 'http://www.1v1baron.com:1337/getAllChamp'
+            
         });
         return (request.then(handleSuccess, handleError));
     }

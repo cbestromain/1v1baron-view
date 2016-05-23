@@ -44,7 +44,7 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <a class="thumbnail">
-                                        <img ng-src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/champion/{{nameChampSelected}}.png" alt="">
+                                        <img ng-src="http://ddragon.leagueoflegends.com/cdn/6.10.1/img/champion/{{nameChampSelected}}.png" alt="">
                                         <p>{{nameChampSelected}}</p>
                                     </a>
                                 </div>
@@ -55,7 +55,7 @@
                                 <div ng-repeat="counterItem in allCounterList | orderBy: 'value.difficulty' " class="col-xs-12 row suggestPickCounterItem">
                                     <a class="thumbnail suggestPickThumbnail" href="#/duelAdvice/{{nameChampSelected}}/{{counterItem.value.champion}}" > 
                                         <div class="col-md-3">
-                                            <img ng-src="http://ddragon.leagueoflegends.com/cdn/5.24.2/img/champion/{{counterItem.value.champion}}.png" alt="">
+                                            <img ng-src="http://ddragon.leagueoflegends.com/cdn/6.10.1/img/champion/{{counterItem.value.champion}}.png" alt="">
                                             <p>{{counterItem.value.champion}}</p>
                                             <rating ng-model="counterItem.key[1]" max="5" readonly="true" state-on="'baron-on'" state-off="'baron-off'"></rating>
 

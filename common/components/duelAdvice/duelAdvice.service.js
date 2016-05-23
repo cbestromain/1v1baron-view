@@ -24,7 +24,8 @@ webadminServices.service('DuelAdviceService', function($http, $q) {
         console.log('getMatchup ', champion, ennemy);
         var request = $http({
             method: 'POST',
-            url: 'http://51.254.115.94:1337/getMatchup',
+            // url: 'http://51.254.115.94:1337/getMatchup',
+            url: 'http://www.1v1baron.com:1337/getMatchup',
             headers: {
                 champion: champion,
                 ennemy: ennemy
