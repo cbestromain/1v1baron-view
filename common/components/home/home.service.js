@@ -9,7 +9,7 @@ webadminServices.service('HomeService', function($http, $q) {
         var request = $http({
             method: 'GET',
             // url: 'http://51.254.115.94:1337/getSummonerInfo',
-            url: 'http://localhost:1337/getSummonerInfo',
+            url: 'http://www.1v1baron.com:1337/getSummonerInfo',
             headers: {
                 'region': summoner.country,
                 'summoner_name': summoner.summonerName
